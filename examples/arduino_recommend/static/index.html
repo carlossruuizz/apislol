@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arduino_recommend</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>arduino recommend</h1>
+            <p class="subtitle">Find the right board for your experience level.</p>
+        </header>
+
+        <section class="controls">
+            <div class="field">
+                <label for="level">Experience level</label>
+                <div class="slider-wrap">
+                    <input type="range" id="level" min="0" max="5" value="0" step="1" />
+                    <div class="ticks">
+                        <span>0</span><span>1</span><span>2</span>
+                        <span>3</span><span>4</span><span>5</span>
+                    </div>
+                </div>
+                <span class="level-label" id="level-label">Beginner</span>
+            </div>
+
+            <div class="field">
+                <label for="tag">Filter by tag <span class="muted">(optional)</span></label>
+                <div class="tag-list" id="tag-list"></div>
+            </div>
+        </section>
+
+        <section class="results" id="results"></section>
+
+        <footer>
+            <span>Built with <a href="https://github.com/carlossruuizz/apislol" target="_blank">apislol</a>, data from
+                <a href="https://store.arduino.cc" target="_blank">Arduino Store</a></span>
+        </footer>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

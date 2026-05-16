@@ -1,0 +1,27 @@
+"""
+cats_image — random cat photo viewer powered by apislol + The Cat API (no key needed).
+"""
+
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
+import apis as alol
+
+api = alol.engine()
+
+api.start(config={
+    "host": "localhost",
+    "port": 8081,
+    "debug": True,
+    "block_bots": False,
+    "allowed_hosts": ["localhost", "127.0.0.1"],
+    "rate_limit": 120,
+    "cors": {"enabled": True, "origins": ["*"]},
+    "honeypots": ["/.env", "/wp-login.php"],
+    "routing": {
+        "/": "./handlers/static.py",
+        "/cat": "./handlers/cat.py",
+    },
+})
