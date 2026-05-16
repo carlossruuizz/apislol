@@ -4,7 +4,7 @@
 | <a href="https://github.com/carlossruuizz/apislol"><img src="https://img.shields.io/badge/version-1.0.0-f2c94c?style=flat-square" alt="Version" /></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-f2c94c?style=flat-square" alt="Python" /></a> <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-f2c94c?style=flat-square" alt="License" /></a> <a href="https://github.com/carlossruuizz/apislol/stargazers"><img src="https://img.shields.io/github/stars/carlossruuizz/apislol?style=flat-square&color=f2c94c" alt="Stars" /></a> |
 |---|
 
-[Español](./docs/README.es.md) — [Chinese](./docs/README.zh.md) ⁞ [Brainfuck](./docs/README.bf.md)
+[Spanish/Español](./docs/README.es.md) — [Chinese/中文](./docs/README.zh.md) ⁞ [Brainfuck/BF](./docs/README.bf.md)
 
 </div>
 
