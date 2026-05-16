@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://i.imgur.com/Ytw0dW6.png" />
 
-| <a href="https://github.com/carlossruuizz/apislol"><img src="https://img.shields.io/badge/version-1.0.0-f2c94c?style=flat-square" alt="Version" /></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-f2c94c?style=flat-square" alt="Python" /></a> <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-f2c94c?style=flat-square" alt="License" /></a> <a href="https://github.com/carlossruuizz/apislol/stargazers"><img src="https://img.shields.io/github/stars/carlossruuizz/apislol?style=flat-square&color=f2c94c" alt="Stars" /></a> |
+| <a href="https://github.com/carlossruuizz/apislol"><img src="https://img.shields.io/badge/version-1.1.1-f2c94c?style=flat-square" alt="Version" /></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-f2c94c?style=flat-square" alt="Python" /></a> <a href="./LICENSE"><img src="https://img.shields.io/badge/license-bsd3 clause-f2c94c?style=flat-square" alt="License" /></a> <a href="https://github.com/carlossruuizz/apislol/stargazers"><img src="https://img.shields.io/github/stars/carlossruuizz/apislol?style=flat-square&color=f2c94c" alt="Stars" /></a> |
 |---|
 
 [Spanish/Español](./docs/README.es.md) — [Chinese/中文](./docs/README.zh.md) ⁞ [Brainfuck/BF](./docs/README.bf.md)
@@ -12,7 +12,7 @@
 
 **Build HTTP APIs in pure Python** with zero dependencies and minimal boilerplate. A lightweight framework with a built-in security middleware stack, flexible routing, and multi-format response transforms.
 
-**apislol provides:** Rate limiting, Bot blocking, CORS, Honeypot traps, IP/UA blocklists, API key auth, Cooldown, Response transforms (JSON, YAML, XML, CSV, TOML, HTML), and more.
+**apislol provides:** *Rate limiting*, *Bot blocking*, *CORS*, *Honeypot traps*, *IP/UA blocklists*, *API key auth*, *Cooldown*, *Response transforms (JSON, YAML, XML, CSV, TOML, HTML)*, and more.
 
 > [!NOTE]
 > Requires Python 3.10+. No external dependencies — built entirely on the Python standard library.
@@ -68,56 +68,43 @@ def get_user(request: Request) -> Response:
 </details>
 
 > [!TIP]
-> Return a plain `dict` from any handler — apislol auto-serializes it based on the `Accept` header or URL suffix (e.g. `/users/1.yaml`).
+> Return a plain *`dict`* from any handler — apislol auto-serializes it based on the *`Accept`* header or URL suffix (e.g. *`/users/1.yaml`*).
 
 ---
 
-<table width="100%">
-<tr>
-<td valign="top" width="50%">
-
 ### Middleware
 
-<div align="center">
+<div>
 
 | Component | Behavior |
 |-----------|----------|
-| `RateLimiter` | Sliding-window per-IP request cap |
-| `BotBlocker` | Block known bots, AI crawlers, headless browsers |
-| `IPFilter` | Block/allow IPs and CIDR ranges |
-| `UaBlocklist` | Custom User-Agent regex patterns |
-| `CorsMiddleware` | Inject CORS headers per config |
-| `HoneypotMiddleware` | Ban IPs that hit trap paths |
-| `ApiKeyMiddleware` | Header or query-param key validation |
-| `CooldownMiddleware` | Per-IP delay after repeated errors |
-| `AllowedHosts` | Validate the `Host` header |
-
-</div>
-</td>
-<td valign="top" width="50%">
+| *`RateLimiter`* | Sliding-window per-IP request cap |
+| *`BotBlocker`* | Block known bots, AI crawlers, headless browsers |
+| *`IPFilter`* | Block/allow IPs and CIDR ranges |
+| *`UaBlocklist`* | Custom User-Agent regex patterns |
+| *`CorsMiddleware`* | Inject CORS headers per config |
+| *`HoneypotMiddleware`* | Ban IPs that hit trap paths |
+| *`ApiKeyMiddleware`* | Header or query-param key validation |
+| *`CooldownMiddleware`* | Per-IP delay after repeated errors |
+| *`AllowedHosts`* | Validate the *`Host`* header |
 
 ### Response Transforms
 
 | Format | Content-Type |
 |--------|-------------|
-| `json` | `application/json` |
-| `yaml` | `application/x-yaml` |
-| `toml` | `application/toml` |
-| `xml` | `application/xml` |
-| `csv` | `text/csv` |
-| `html` | `text/html` |
+| *`json`* | *`application/json`* |
+| *`yaml`* | *`application/x-yaml`* |
+| *`toml`* | *`application/toml`* |
+| *`xml`* | *`application/xml`* |
+| *`csv`* | *`text/csv`* |
+| *`html`* | *`text/html`* |
 
-Resolved automatically via `Accept` header or URL suffix.
-Register custom formats with `engine.transforms.register()`.
+> Resolved automatically via *`Accept`* header or URL suffix. <br>
+> Register custom formats with *`engine.transforms.register()`*.
 
-</td>
-</tr>
-<tr>
-<td valign="top" colspan="2">
+--- 
 
 ### Routing
-
-Routes map a path prefix to a handler `.py` file. Each file exposes a `router` (a `Router` instance) with decorated handler functions.
 
 ```python
 api.start(config={
@@ -128,17 +115,13 @@ api.start(config={
 })
 ```
 
-Dynamic path parameters use `{param}` syntax:
+> Dynamic path parameters use *`{param}`* syntax:
 
 ```python
 @router.get("/{id}")
 def get_item(request: Request) -> dict:
     return {"id": request.path_params["id"]}
 ```
-
-</td>
-</tr>
-</table>
 
 ---
 
